@@ -1,5 +1,7 @@
 package roberto.palmi;
 
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Actividad 1: ");
@@ -16,6 +18,7 @@ public class Main {
 
         String directorio = Config.FOLDER;
         String nombreArchivo = "archivoEjercicios.txt";
+        String nombreArchivo2 = "archivoEjercicios2.txt";
         String rutaArchivo = directorio + "/" + nombreArchivo;
 
         ej5.crearArchivo(directorio, nombreArchivo);
@@ -26,6 +29,11 @@ public class Main {
 
         System.out.println("Actividad 8: ");
         Act8 ej8 = new Act8();
+
+        System.out.println("Actividad 9: ");
+        Act9 ej9 = new Act9(new File(directorio + "/" + nombreArchivo), new File(directorio + "/" + nombreArchivo2));
+
+
 
     }
 }
