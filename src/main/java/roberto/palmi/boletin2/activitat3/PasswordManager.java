@@ -3,10 +3,12 @@ package roberto.palmi.boletin2.activitat3;
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Properties;
 
 public class PasswordManager {
-    private static final String fileName = "src/main/java/roberto/palmi/boletin2/activitat3/password.txt";
+    private static final String fileName = "src/main/java/roberto/palmi/boletin2/activitat3/password.properties";
     private static final String passwordPredeterminada = "S3cret@";
+    private static final String key = "passwordHash";
     private String passwordHashOnFile = "";
 
     public PasswordManager() {
@@ -44,16 +46,22 @@ public class PasswordManager {
     }
 
     private void guardarArchivo(String hash) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
-            bw.write(hash);
+        Properties props = new Properties();
+        props.setProperty(key, hash);
+
+        try (FileOutputStream fos = new FileOutputStream(fileName)) {
+            props.store(fos, "Archivo de contrasena en hash");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private String leerArchivo() {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            return br.readLine();
+        Properties props = new Properties();
+
+        try (FileInputStream fis = new FileInputStream(fileName)) {
+            props.load(fis);
+            return props.getProperty(key, "");
         } catch (IOException e) {
             e.printStackTrace();
             return "";
