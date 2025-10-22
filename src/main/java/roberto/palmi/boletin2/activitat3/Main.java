@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        PasswordManager pm = new PasswordManager();
+        roberto.palmi.boletin2.activitat3.PasswordManager pm = new roberto.palmi.boletin2.activitat3.PasswordManager();
 
         boolean salir = false;
 
@@ -42,7 +42,7 @@ public class Main {
         sc.close();
     }
 
-    private static void mostrarMenuInterno(Scanner sc, PasswordManager pm) {
+    private static void mostrarMenuInterno(Scanner sc, roberto.palmi.boletin2.activitat3.PasswordManager pm) {
         boolean salir = false;
 
         while (!salir) {
@@ -66,7 +66,7 @@ public class Main {
         }
     }
 
-    private static void modificarPassword(Scanner sc, PasswordManager pm) {
+    private static void modificarPassword(Scanner sc, roberto.palmi.boletin2.activitat3.PasswordManager pm) {
         System.out.print("Introduce la contraseña anterior: ");
         String oldPass = sc.nextLine();
 
