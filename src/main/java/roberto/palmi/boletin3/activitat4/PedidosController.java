@@ -41,6 +41,7 @@ public class PedidosController {
 
             if (id.equals(idPedido)) {
                 Element cliente = (Element) pedidoElement.getElementsByTagName("cliente").item(0);
+
                 String nombre = cliente.getElementsByTagName("nombre").item(0).getTextContent();
                 String email = cliente.getElementsByTagName("email").item(0).getTextContent();
                 String fecha = pedidoElement.getElementsByTagName("fecha").item(0).getTextContent();
